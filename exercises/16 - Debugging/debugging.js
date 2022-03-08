@@ -8,6 +8,8 @@ people.forEach((person, index) => {
   console.log(person.name);
 });
 
+// console.table(people);
+
 // Console Methods
 
 // Callstack
@@ -24,12 +26,21 @@ people.forEach((person, index) => {
 
 // Some Setup Code
 
+function doALotOfStuff() {
+  console.group('Doing some stuff');
+  console.log('Hey im one');
+  console.warn('watch out!');
+  console.error('hey');
+  console.groupEnd('Doing some stuff');
+}
+
 function doctorize(name) {
+  //   console.count(`running doctorize for ${name}`);
   return `Dr. ${name}`;
 }
 
 function greet(name) {
-  doesntExist();
+  //   doesntExist(); // cause an error
   return `Hello ${name}`;
 }
 
@@ -37,6 +48,13 @@ function go() {
   const name = doctorize(greet('Wes'));
   console.log(name);
 }
+
+function bootstrap() {
+  console.log('running the app');
+  go();
+}
+
+// bootstrap();
 
 const button = document.querySelector('.bigger');
 button.addEventListener('click', (e) => {
