@@ -1,76 +1,52 @@
 // Make a div
-
-const myDiv = document.createElement('div');
-
+const div = document.createElement('div');
 // add a class of wrapper to it
-
-myDiv.classList.add('wrapper');
-
+div.classList.add('wrapper');
 // put it into the body
-
-document.body.appendChild(myDiv);
+document.body.appendChild(div);
 
 // make an unordered list
-
-const myList = `
-<ul>
-    <li>one</li>
-    <li>two</li>
-    <li>three</li>
-</ul>
-`;
-
-// add three list items with the words "one, two, three" in them
+const ul = `<ul>
+  <li>one</li>
+  <li>two</li>
+  <li>three</li>
+</ul>`;
+// add three list items with the words "one, two three" in them
 // put that list into the above wrapper
-
-myDiv.innerHTML = myList;
+div.innerHTML = ul;
 
 // create an image
-
-const myImage = document.createElement('img');
-
+const img = document.createElement('img');
 // set the source to an image
-
-myImage.src = 'https://source.unsplash.com/random/300x300';
-
+img.src = 'https://picsum.photos/500';
 // set the width to 250
-myImage.width = 250;
-myImage.height = 250;
+img.width = 250;
+img.height = 250;
 // add a class of cute
-myImage.classList.add('cute');
+img.classList.add('cute');
 // add an alt of Cute Puppy
-myImage.alt = 'cute puppy';
+img.alt = 'Cute Puppy!';
 // Append that image to the wrapper
-
-myDiv.appendChild(myImage);
+div.appendChild(img);
 
 // with HTML string, make a div, with two paragraphs inside of it
-
 const myHTML = `
-<div class="myDiv">
-    <p>paragraph one</p>
-    <p>paragraph two</p>
-</div>
+  <div class="myDiv">
+    <p>Paragraph One</p>
+    <p>Paragraph Two</p>
+  </div>
 `;
-
-const ulElement = myDiv.querySelector('ul');
-
+const ulElement = div.querySelector('ul');
+console.log(ulElement);
 // put this div before the unordered list from above
-
 ulElement.insertAdjacentHTML('beforebegin', myHTML);
-
 // add a class to the second paragraph called warning
-
-const myDiv2 = document.querySelector('.myDiv');
-
-myDiv2.children[1].classList.add('warning');
-
+const myDiv = div.querySelector('.myDiv');
+myDiv.children[1].classList.add('warning');
 // remove the first paragraph
-
-myDiv2.firstElementChild.remove();
+myDiv.firstElementChild.remove();
 
 // create a function called generatePlayerCard that takes in three arguments: name, age, and height
-
 function generatePlayerCard(name, age, height) {
   const html = `
     <div class="playerCard">
@@ -96,13 +72,13 @@ function generatePlayerCard(name, age, height) {
 const cards = document.createElement('div');
 cards.classList.add('cards');
 // Have that function make 4 cards
-let cardsHTML = generatePlayerCard('fia', 19, "5'5");
-cardsHTML += generatePlayerCard('tommy', 21, "5'8");
-cardsHTML += generatePlayerCard('tabi', 28, "5'3");
-cardsHTML += generatePlayerCard('tom', 70, "5'7");
+let cardsHTML = generatePlayerCard('wes', 12, 150);
+cardsHTML += generatePlayerCard('scott', 12, 150);
+cardsHTML += generatePlayerCard('kait', 12, 150);
+cardsHTML += generatePlayerCard('snickers', 12, 150);
 
 cards.innerHTML = cardsHTML;
-myDiv.insertAdjacentElement('beforebegin', cards);
+div.insertAdjacentElement('beforebegin', cards);
 // append those cards to the div
 // put the div into the DOM just before the wrapper element
 // Bonus, put a delete Button on each card so when you click it, the whole card is removed
