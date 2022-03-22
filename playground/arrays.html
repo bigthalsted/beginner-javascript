@@ -11,7 +11,68 @@
 </head>
 
 <body>
+  <script>
+    const names = ['wes', 'kait', 'snickers'];
+    console.log(names.length);
+    console.log(names[0]);
+    console.log(names[names.length - 1]);
 
+    const names2 = [...names, 'lux'];
+    names.unshift('poppy');
+    console.log(names);
+
+    const names3 = ['lux', ...names];
+    console.log(names3);
+
+    const bikes = ['bianchi', 'miele', 'panasonic', 'miyata'];
+    const newBikes = [...bikes.slice(0, 2), 'benotto', ...bikes.slice(2)];
+    console.log(newBikes);
+
+    const newBikes2 = [...newBikes.slice(0, 3), ...newBikes.slice(4)];
+    console.log(newBikes2);
+
+    const comments = [
+      { text: 'cool beans', id: 123 },
+      { text: 'Love This', id: 133 },
+      { text: 'Neato', id: 233 },
+      { text: 'Good Bikes', id: 333 },
+      { text: 'so good', id: 433 },
+    ];
+
+    function deleteComment(id, comments) {
+      // find the index of the item in the array
+      const commentIndex = comments.findIndex((comment) => comment.id === id);
+      return [
+        ...comments.slice(0, commentIndex),
+        ...comments.slice(commentIndex + 1),
+      ];
+      // make a new array without that item in it
+      // return our new array
+    }
+
+    const kaitIndex = names.findIndex((name) => name === 'kait');
+    console.log(names[kaitIndex]);
+    const newNamesWithOutKait = [
+      ...names.slice(0, kaitIndex),
+      // everything after kait index
+      ...names.slice(kaitIndex + 1),
+    ].flat();
+    console.log(newNamesWithOutKait);
+    // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // const pizzaSlice = numbers.slice(2, 4);
+    // console.log(pizzaSlice);
+    // numbers.splice(3, 2);
+    // console.log(numbers);
+
+    // // mutation methods - do change the original data
+    // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // // numbers.reverse();
+    // const numbersReversed = [...numbers].reverse();
+    // console.log(numbersReversed);
+
+    // // immuteable - they do not change the original data
+    // // console.log(numbers);
+  </script>
 </body>
 
 </html>
