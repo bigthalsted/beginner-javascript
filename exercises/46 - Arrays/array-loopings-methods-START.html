@@ -138,6 +138,7 @@
     /*
       Looping Methods
     */
+
     function logTopping(topping, index, originalArray) {
       const nextTopping = originalArray[index + 1];
       const prevTopping = originalArray[index - 1];
@@ -236,31 +237,31 @@
     // Reduce!
     console.clear();
 
-    function tallyNumbers(tally, currentTotal) {
-      console.log(`the curent tally is ${tally}`);
-      console.log(`the curent total is ${currentTotal}`);
-      console.log('---------');
-      // return current tally + amount of this order
-      return tally + currentTotal;
+    function combineTotals(total, currentBill) {
+      console.log(`The current accumulator is at ${total}`);
+      console.log(`The current total is ${currentBill}`);
+      console.log('------');
+      return total + currentBill;
     }
 
-    const allOrders = orderTotals.reduce(tallyNumbers, 0);
+    const allOrders = orderTotals.reduce(combineTotals, 0);
     console.log(allOrders);
 
+    /* eslint-disable */
+
     function inventoryReducer(totals, item) {
-      console.log(`Looping over ${item.type}`);
+      console.log(`looping over ${item.type}`);
       // increment the type by 1
       totals[item.type] = totals[item.type] + 1 || 1;
+      // return the totals, so the next loop can use it
       return totals;
     }
+
     const inventoryCounts = inventory.reduce(inventoryReducer, {});
     console.log(inventoryCounts);
 
-    const totalInventoryPrice = inventory.reduce(
-      (acc, item) => acc + item.price,
-      0
-    );
-    console.log(totalInventoryPrice);
+    const totalInventoryPrice = inventory.reduce((acc, item) => acc + item.price, 0)
+    console.log(totalInventoryPrice)
   </script>
 </body>
 
